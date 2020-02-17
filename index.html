@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <title>API Reference</title>
+    <title>Solon API</title>
 
     <style>
       .highlight table td { padding: 5px; }
@@ -201,7 +201,7 @@
       <script src="javascripts/all-c5541673.js"></script>
   </head>
 
-  <body class="index" data-languages="[&quot;shell&quot;,&quot;ruby&quot;,&quot;python&quot;,&quot;javascript&quot;]">
+  <body class="index" data-languages="[]">
     <a href="#" id="nav-button">
       <span>
         NAV
@@ -210,12 +210,6 @@
     </a>
     <div class="toc-wrapper">
       <img src="images/logo-08c4848d.png" class="logo" alt="Logo" />
-        <div class="lang-selector">
-              <a href="#" data-language-name="shell">shell</a>
-              <a href="#" data-language-name="ruby">ruby</a>
-              <a href="#" data-language-name="python">python</a>
-              <a href="#" data-language-name="javascript">javascript</a>
-        </div>
         <div class="search">
           <input type="text" class="search" id="input-search" placeholder="Search">
         </div>
@@ -228,25 +222,54 @@
             <a href="#authentication" class="toc-h1 toc-link" data-title="Authentication">Authentication</a>
           </li>
           <li>
-            <a href="#kittens" class="toc-h1 toc-link" data-title="Kittens">Kittens</a>
+            <a href="#proposals" class="toc-h1 toc-link" data-title="Proposals">Proposals</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#get-all-kittens" class="toc-h2 toc-link" data-title="Get All Kittens">Get All Kittens</a>
+                    <a href="#proposal-model" class="toc-h2 toc-link" data-title="Proposal Model">Proposal Model</a>
                   </li>
                   <li>
-                    <a href="#get-a-specific-kitten" class="toc-h2 toc-link" data-title="Get a Specific Kitten">Get a Specific Kitten</a>
+                    <a href="#get-all-proposals" class="toc-h2 toc-link" data-title="Get All Proposals">Get All Proposals</a>
                   </li>
                   <li>
-                    <a href="#delete-a-specific-kitten" class="toc-h2 toc-link" data-title="Delete a Specific Kitten">Delete a Specific Kitten</a>
+                    <a href="#search-for-a-proposal" class="toc-h2 toc-link" data-title="Search for a Proposal">Search for a Proposal</a>
+                  </li>
+                  <li>
+                    <a href="#get-a-specific-proposal" class="toc-h2 toc-link" data-title="Get a Specific Proposal">Get a Specific Proposal</a>
+                  </li>
+                  <li>
+                    <a href="#create-a-proposal" class="toc-h2 toc-link" data-title="Create a Proposal">Create a Proposal</a>
+                  </li>
+                  <li>
+                    <a href="#delete-a-specific-proposal" class="toc-h2 toc-link" data-title="Delete a Specific Proposal">Delete a Specific Proposal</a>
                   </li>
               </ul>
+          </li>
+          <li>
+            <a href="#votes" class="toc-h1 toc-link" data-title="Votes">Votes</a>
+          </li>
+          <li>
+            <a href="#events" class="toc-h1 toc-link" data-title="Events">Events</a>
+          </li>
+          <li>
+            <a href="#attenders" class="toc-h1 toc-link" data-title="Attenders">Attenders</a>
+          </li>
+          <li>
+            <a href="#forum-posts" class="toc-h1 toc-link" data-title="Forum Posts">Forum Posts</a>
+          </li>
+          <li>
+            <a href="#comments" class="toc-h1 toc-link" data-title="Comments">Comments</a>
+          </li>
+          <li>
+            <a href="#users" class="toc-h1 toc-link" data-title="Users">Users</a>
+          </li>
+          <li>
+            <a href="#admins" class="toc-h1 toc-link" data-title="Admins">Admins</a>
           </li>
           <li>
             <a href="#errors" class="toc-h1 toc-link" data-title="Errors">Errors</a>
           </li>
       </ul>
         <ul class="toc-footer">
-            <li><a href='#'>Sign Up for a Developer Key</a></li>
             <li><a href='https://github.com/lord/slate'>Documentation Powered by Slate</a></li>
         </ul>
     </div>
@@ -254,133 +277,205 @@
       <div class="dark-box"></div>
       <div class="content">
         <h1 id='introduction'>Introduction</h1>
-<p>Welcome to the Kittn API! You can use our API to access Kittn API endpoints, which can get information on various cats, kittens, and breeds in our database.</p>
-
-<p>We have language bindings in Shell, Ruby, Python, and JavaScript! You can view code examples in the dark area to the right, and you can switch the programming language of the examples with the tabs in the top right.</p>
-
-<p>This example API documentation page was created with <a href="https://github.com/lord/slate">Slate</a>. Feel free to edit it and use it as a base for your own API&#39;s documentation.</p>
+<p>Welcome to the Solon API! You can use our API to access Solon API endpoints, which can get information on content in our database.</p>
 <h1 id='authentication'>Authentication</h1>
-<blockquote>
-<p>To authorize, use this code:</p>
-</blockquote>
-<pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'kittn'</span>
+<p>Solon API expects for the API key to be included in all API requests to the server in a header that looks like the following:</p>
 
-<span class="n">api</span> <span class="o">=</span> <span class="no">Kittn</span><span class="o">::</span><span class="no">APIClient</span><span class="p">.</span><span class="nf">authorize!</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">)</span>
-</code></pre><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">kittn</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="n">kittn</span><span class="o">.</span><span class="n">authorize</span><span class="p">(</span><span class="s">'meowmeowmeow'</span><span class="p">)</span>
-</code></pre><pre class="highlight shell tab-shell"><code><span class="c"># With shell, you can just pass the correct header with each request</span>
-curl <span class="s2">"api_endpoint_here"</span>
-  -H <span class="s2">"Authorization: meowmeowmeow"</span>
-</code></pre><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">kittn</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'kittn'</span><span class="p">);</span>
-
-<span class="kd">let</span> <span class="nx">api</span> <span class="o">=</span> <span class="nx">kittn</span><span class="p">.</span><span class="nx">authorize</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">);</span>
-</code></pre>
-<blockquote>
-<p>Make sure to replace <code>meowmeowmeow</code> with your API key.</p>
-</blockquote>
-
-<p>Kittn uses API keys to allow access to the API. You can register a new Kittn API key at our <a href="http://example.com/developers">developer portal</a>.</p>
-
-<p>Kittn expects for the API key to be included in all API requests to the server in a header that looks like the following:</p>
-
-<p><code>Authorization: meowmeowmeow</code></p>
+<p><code>Authorization: apikeyhere</code></p>
 
 <aside class="notice">
-You must replace <code>meowmeowmeow</code> with your personal API key.
+You must replace <code>apikeyhere</code> with your personal API key.
 </aside>
-<h1 id='kittens'>Kittens</h1><h2 id='get-all-kittens'>Get All Kittens</h2><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'kittn'</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="no">Kittn</span><span class="o">::</span><span class="no">APIClient</span><span class="p">.</span><span class="nf">authorize!</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="p">.</span><span class="nf">kittens</span><span class="p">.</span><span class="nf">get</span>
-</code></pre><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">kittn</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="n">kittn</span><span class="o">.</span><span class="n">authorize</span><span class="p">(</span><span class="s">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="o">.</span><span class="n">kittens</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
-</code></pre><pre class="highlight shell tab-shell"><code>curl <span class="s2">"http://example.com/api/kittens"</span>
-  -H <span class="s2">"Authorization: meowmeowmeow"</span>
-</code></pre><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">kittn</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'kittn'</span><span class="p">);</span>
-
-<span class="kd">let</span> <span class="nx">api</span> <span class="o">=</span> <span class="nx">kittn</span><span class="p">.</span><span class="nx">authorize</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">);</span>
-<span class="kd">let</span> <span class="nx">kittens</span> <span class="o">=</span> <span class="nx">api</span><span class="p">.</span><span class="nx">kittens</span><span class="p">.</span><span class="nx">get</span><span class="p">();</span>
-</code></pre>
+<h1 id='proposals'>Proposals</h1><h2 id='proposal-model'>Proposal Model</h2>
 <blockquote>
-<p>The above command returns JSON structured like this:</p>
+<p>Proposals are stored in a model structured like this:</p>
 </blockquote>
-<pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
-  </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fluffums"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"breed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"calico"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"fluffiness"</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"cuteness"</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="w">
-  </span><span class="p">},</span><span class="w">
-  </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Max"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"breed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"unknown"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"fluffiness"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"cuteness"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="w">
-  </span><span class="p">}</span><span class="w">
-</span><span class="p">]</span><span class="w">
-</span></code></pre>
-<p>This endpoint retrieves all kittens.</p>
-<h3 id='http-request'>HTTP Request</h3>
-<p><code>GET http://example.com/api/kittens</code></p>
-<h3 id='query-parameters'>Query Parameters</h3>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"pid"</span><span class="p">:</span><span class="w"> </span><span class="mi">257</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"{</span><span class="se">\"</span><span class="s2">en</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">This is a title</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">zhcn</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">这是一个标题</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">zhtw</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">這是一個標題</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">bn</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">এটি একটি শিরোনাম</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">ko</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">제목입니다</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">ru</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">Это название</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">ja</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">これはタイトルです</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">uk</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">Це заголовок</span><span class="se">\"</span><span class="s2">}"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"{</span><span class="se">\"</span><span class="s2">en</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">This is a description</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">zhcn</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">这是一个描述</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">zhtw</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">這是一個描述</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">bn</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">এটি একটি বিবরণ</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">ko</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">이것은 설명입니다</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">ru</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">Это описание</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">ja</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">これは説明です</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">uk</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">Це опис</span><span class="se">\"</span><span class="s2">}"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"starttime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-07-14T19:23:51.000Z"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"endtime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-07-28T19:23:51.000Z"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"uid"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"numyes"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"numno"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"numvotes"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"entitle"</span><span class="p">:</span><span class="w"> </span><span class="s2">"faf"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"endescription"</span><span class="p">:</span><span class="w"> </span><span class="s2">"faf"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><h3 id='fields'>Fields</h3>
 <table><thead>
 <tr>
-<th>Parameter</th>
-<th>Default</th>
+<th>Field</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>include_cats</td>
-<td>false</td>
-<td>If set to true, the result will also include cats.</td>
+<td>pid</td>
+<td>ID of the proposal</td>
 </tr>
 <tr>
-<td>available</td>
-<td>true</td>
-<td>If set to false, the result will include kittens that have already been adopted.</td>
+<td>title</td>
+<td>JSON with language code as key and translated title as value</td>
+</tr>
+<tr>
+<td>description</td>
+<td>JSON with language code as key and translated description as value</td>
+</tr>
+<tr>
+<td>starttime</td>
+<td>timestamp for creation of the proposal</td>
+</tr>
+<tr>
+<td>endtime</td>
+<td>timestamp for end of the proposal</td>
+</tr>
+<tr>
+<td>uid</td>
+<td>user ID of the user that created the proposal</td>
+</tr>
+<tr>
+<td>numyes</td>
+<td>number of yes votes on the proposal</td>
+</tr>
+<tr>
+<td>numno</td>
+<td>number of no votes on the proposal</td>
+</tr>
+<tr>
+<td>numvotes</td>
+<td>number of votes on the proposal</td>
+</tr>
+<tr>
+<td>entitle</td>
+<td>English string of the proposal title</td>
+</tr>
+<tr>
+<td>endescription</td>
+<td>English string of the proposal description</td>
 </tr>
 </tbody></table>
-
-<aside class="success">
-Remember — a happy kitten is an authenticated kitten!
-</aside>
-<h2 id='get-a-specific-kitten'>Get a Specific Kitten</h2><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'kittn'</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="no">Kittn</span><span class="o">::</span><span class="no">APIClient</span><span class="p">.</span><span class="nf">authorize!</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="p">.</span><span class="nf">kittens</span><span class="p">.</span><span class="nf">get</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-</code></pre><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">kittn</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="n">kittn</span><span class="o">.</span><span class="n">authorize</span><span class="p">(</span><span class="s">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="o">.</span><span class="n">kittens</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-</code></pre><pre class="highlight shell tab-shell"><code>curl <span class="s2">"http://example.com/api/kittens/2"</span>
-  -H <span class="s2">"Authorization: meowmeowmeow"</span>
-</code></pre><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">kittn</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'kittn'</span><span class="p">);</span>
-
-<span class="kd">let</span> <span class="nx">api</span> <span class="o">=</span> <span class="nx">kittn</span><span class="p">.</span><span class="nx">authorize</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">);</span>
-<span class="kd">let</span> <span class="nx">max</span> <span class="o">=</span> <span class="nx">api</span><span class="p">.</span><span class="nx">kittens</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
-</code></pre>
+<h2 id='get-all-proposals'>Get All Proposals</h2>
 <blockquote>
-<p>The above command returns JSON structured like this:</p>
+<p>This endpoint returns a JSON structured like this:</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Max"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"breed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"unknown"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"fluffiness"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"cuteness"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="w">
+    </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"All proposals were fetched in order of numvotes ascending"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"proposals"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"pid"</span><span class="p">:</span><span class="w"> </span><span class="mi">249</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"{</span><span class="se">\"</span><span class="s2">en</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">faf</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">zhcn</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">FAF</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">zhtw</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">FAF</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">bn</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">ফাফ</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">ko</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">FAF</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">ru</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">FAF</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">ja</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">FAF</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">uk</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">FAF</span><span class="se">\"</span><span class="s2">}"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"{</span><span class="se">\"</span><span class="s2">en</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">faf</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">zhcn</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">FAF</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">zhtw</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">FAF</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">bn</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">ফাফ</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">ko</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">FAF</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">ru</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">FAF</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">ja</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">FAF</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">uk</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">FAF</span><span class="se">\"</span><span class="s2">}"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"starttime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-02-14T16:02:42.788Z"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"endtime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-02-21T16:02:42.788Z"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"uid"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"numyes"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"numno"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"numvotes"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"entitle"</span><span class="p">:</span><span class="w"> </span><span class="s2">"faf"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"endescription"</span><span class="p">:</span><span class="w"> </span><span class="s2">"faf"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"pid"</span><span class="p">:</span><span class="w"> </span><span class="mi">251</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"{</span><span class="se">\"</span><span class="s2">en</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">vg</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">zhcn</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">vg</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">zhtw</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">vg</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">bn</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">VG</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">ko</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">vg</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">ru</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">В.Г.</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">ja</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">vg</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">uk</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">vg</span><span class="se">\"</span><span class="s2">}"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"{</span><span class="se">\"</span><span class="s2">en</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">vff</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">zhcn</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">VFF</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">zhtw</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">VFF</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">bn</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">vff</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">ko</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">VFF</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">ru</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">ВФФ</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">ja</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">VFF</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">uk</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">ВФФ</span><span class="se">\"</span><span class="s2">}"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"starttime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-02-14T16:52:15.540Z"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"endtime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-02-21T16:52:15.540Z"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"uid"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"numyes"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"numno"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"numvotes"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"entitle"</span><span class="p">:</span><span class="w"> </span><span class="s2">"vg"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"endescription"</span><span class="p">:</span><span class="w"> </span><span class="s2">"vff"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>This endpoint retrieves a specific kitten.</p>
-
-<aside class="warning">Inside HTML code blocks like this one, you can't use Markdown, so use <code>&lt;code&gt;</code> blocks to denote code.</aside>
+<p>This endpoint retrieves all proposals.</p>
+<h3 id='http-request'>HTTP Request</h3>
+<p><code>GET https://api.solonedu.com/proposals?sort_by=&lt;sort.order&gt;</code></p>
+<h3 id='sort_by-query-parameter'>sort_by Query Parameter</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>numvotes.asc</td>
+<td>Sorted by least to greatest number of votes</td>
+</tr>
+<tr>
+<td>numvotes.desc</td>
+<td>Sorted by greatest to least number of votes</td>
+</tr>
+<tr>
+<td>starttime.asc</td>
+<td>Sorted by oldest to newest time of proposal creation</td>
+</tr>
+<tr>
+<td>starttime.desc</td>
+<td>Sorted by newest to oldest time of proposal creation</td>
+</tr>
+<tr>
+<td>endtime.asc</td>
+<td>Sorted by oldest to newest time of proposal expiration</td>
+</tr>
+<tr>
+<td>endtime.desc</td>
+<td>Sorted by newest to oldest time of proposal expiration</td>
+</tr>
+</tbody></table>
+<h2 id='search-for-a-proposal'>Search for a Proposal</h2>
+<blockquote>
+<p>This endpoint returns a JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"All proposals with search query in title or description were fetched"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"proposals"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"pid"</span><span class="p">:</span><span class="w"> </span><span class="mi">251</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"{</span><span class="se">\"</span><span class="s2">en</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">vg</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">zhcn</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">vg</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">zhtw</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">vg</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">bn</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">VG</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">ko</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">vg</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">ru</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">В.Г.</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">ja</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">vg</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">uk</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">vg</span><span class="se">\"</span><span class="s2">}"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"{</span><span class="se">\"</span><span class="s2">en</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">vff</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">zhcn</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">VFF</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">zhtw</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">VFF</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">bn</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">vff</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">ko</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">VFF</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">ru</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">ВФФ</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">ja</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">VFF</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">uk</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">ВФФ</span><span class="se">\"</span><span class="s2">}"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"starttime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-02-14T16:52:15.540Z"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"endtime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-02-21T16:52:15.540Z"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"uid"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"numyes"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"numno"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"numvotes"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"entitle"</span><span class="p">:</span><span class="w"> </span><span class="s2">"vg"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"endescription"</span><span class="p">:</span><span class="w"> </span><span class="s2">"vff"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint retrieves all proposals with the search query in its title or description.</p>
 <h3 id='http-request-2'>HTTP Request</h3>
-<p><code>GET http://example.com/kittens/&lt;ID&gt;</code></p>
+<p><code>GET https://api.solonedu.com/proposals?q=&lt;query&gt;</code></p>
+<h2 id='get-a-specific-proposal'>Get a Specific Proposal</h2>
+<blockquote>
+<p>This endpoint returns a JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Proposal with proposalID 256 was fetched"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"proposal"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"pid"</span><span class="p">:</span><span class="w"> </span><span class="mi">256</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"{</span><span class="se">\"</span><span class="s2">en</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">ff</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">zhcn</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">ff</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">zhtw</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">ff</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">bn</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">FF</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">ko</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">ff</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">ru</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">Ф.Ф.</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">ja</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">ff</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">uk</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">ff</span><span class="se">\"</span><span class="s2">}"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"{</span><span class="se">\"</span><span class="s2">en</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">ffdfffffffff</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">zhcn</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">d</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">zhtw</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">d</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">bn</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">ffdfffffffff</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">ko</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">ffdfffffffff</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">ru</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">ffdfffffffff</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">ja</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">ffdfffffffff</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">uk</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">ffdfffffffff</span><span class="se">\"</span><span class="s2">}"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"starttime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-02-14T21:06:28.318Z"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"endtime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-02-21T21:06:28.318Z"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"uid"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"numyes"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"numno"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"numvotes"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"entitle"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ff"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"endescription"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ffdfffffffff"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint retrieves a specific proposal.</p>
+<h3 id='http-request-3'>HTTP Request</h3>
+<p><code>GET https://api.solonedu.com/proposals/&lt;ID&gt;</code></p>
 <h3 id='url-parameters'>URL Parameters</h3>
 <table><thead>
 <tr>
@@ -390,36 +485,55 @@ Remember — a happy kitten is an authenticated kitten!
 </thead><tbody>
 <tr>
 <td>ID</td>
-<td>The ID of the kitten to retrieve</td>
+<td>The ID of the proposal to retrieve</td>
 </tr>
 </tbody></table>
-<h2 id='delete-a-specific-kitten'>Delete a Specific Kitten</h2><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'kittn'</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="no">Kittn</span><span class="o">::</span><span class="no">APIClient</span><span class="p">.</span><span class="nf">authorize!</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="p">.</span><span class="nf">kittens</span><span class="p">.</span><span class="nf">delete</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-</code></pre><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">kittn</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="n">kittn</span><span class="o">.</span><span class="n">authorize</span><span class="p">(</span><span class="s">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="o">.</span><span class="n">kittens</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-</code></pre><pre class="highlight shell tab-shell"><code>curl <span class="s2">"http://example.com/api/kittens/2"</span>
-  -X DELETE
-  -H <span class="s2">"Authorization: meowmeowmeow"</span>
-</code></pre><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">kittn</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'kittn'</span><span class="p">);</span>
-
-<span class="kd">let</span> <span class="nx">api</span> <span class="o">=</span> <span class="nx">kittn</span><span class="p">.</span><span class="nx">authorize</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">);</span>
-<span class="kd">let</span> <span class="nx">max</span> <span class="o">=</span> <span class="nx">api</span><span class="p">.</span><span class="nx">kittens</span><span class="p">.</span><span class="k">delete</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
-</code></pre>
+<h2 id='create-a-proposal'>Create a Proposal</h2>
 <blockquote>
-<p>The above command returns JSON structured like this:</p>
+<p>This endpoint creates a body like this:</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"deleted"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">":("</span><span class="w">
+    </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"This is a title"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"This is a description"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"starttime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-07-14T19:23:51Z"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"endtime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-07-28T19:23:51Z"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"uid"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>This endpoint deletes a specific kitten.</p>
-<h3 id='http-request-3'>HTTP Request</h3>
-<p><code>DELETE http://example.com/kittens/&lt;ID&gt;</code></p>
+<blockquote>
+<p>This endpoint returns a JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Proposal was created"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"proposal"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"numyes"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"numno"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"numvotes"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"pid"</span><span class="p">:</span><span class="w"> </span><span class="mi">257</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"{</span><span class="se">\"</span><span class="s2">en</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">This is a title</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">zhcn</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">这是一个标题</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">zhtw</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">這是一個標題</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">bn</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">এটি একটি শিরোনাম</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">ko</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">제목입니다</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">ru</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">Это название</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">ja</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">これはタイトルです</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">uk</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">Це заголовок</span><span class="se">\"</span><span class="s2">}"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"{</span><span class="se">\"</span><span class="s2">en</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">This is a description</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">zhcn</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">这是一个描述</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">zhtw</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">這是一個描述</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">bn</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">এটি একটি বিবরণ</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">ko</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">이것은 설명입니다</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">ru</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">Это описание</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">ja</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">これは説明です</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">uk</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">Це опис</span><span class="se">\"</span><span class="s2">}"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"starttime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-07-14T19:23:51.000Z"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"endtime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-07-28T19:23:51.000Z"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"uid"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"entitle"</span><span class="p">:</span><span class="w"> </span><span class="s2">"This is a title"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"endescription"</span><span class="p">:</span><span class="w"> </span><span class="s2">"This is a description"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint creates a specific proposal.</p>
+<h3 id='http-request-4'>HTTP Request</h3>
+<p><code>POST http://example.com/proposals</code></p>
+<h2 id='delete-a-specific-proposal'>Delete a Specific Proposal</h2>
+<blockquote>
+<p>This endpoint returns a JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Proposal with proposalID 256 was deleted"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint deletes a specific proposal.</p>
+<h3 id='http-request-5'>HTTP Request</h3>
+<p><code>DELETE http://example.com/proposals/&lt;ID&gt;</code></p>
 <h3 id='url-parameters-2'>URL Parameters</h3>
 <table><thead>
 <tr>
@@ -429,15 +543,11 @@ Remember — a happy kitten is an authenticated kitten!
 </thead><tbody>
 <tr>
 <td>ID</td>
-<td>The ID of the kitten to delete</td>
+<td>The ID of the proposal to delete</td>
 </tr>
 </tbody></table>
-<h1 id='errors'>Errors</h1>
-<aside class="notice">
-This error section is stored in a separate file in <code>includes/_errors.md</code>. Slate allows you to optionally separate out your docs into many files...just save them to the <code>includes</code> folder and add them to the top of your <code>index.md</code>'s frontmatter. Files are included in the order listed.
-</aside>
-
-<p>The Kittn API uses the following error codes:</p>
+<h1 id='votes'>Votes</h1><h1 id='events'>Events</h1><h1 id='attenders'>Attenders</h1><h1 id='forum-posts'>Forum Posts</h1><h1 id='comments'>Comments</h1><h1 id='users'>Users</h1><h1 id='admins'>Admins</h1><h1 id='errors'>Errors</h1>
+<p>The Solon API uses the following error codes:</p>
 
 <table><thead>
 <tr>
@@ -446,59 +556,17 @@ This error section is stored in a separate file in <code>includes/_errors.md</co
 </tr>
 </thead><tbody>
 <tr>
-<td>400</td>
-<td>Bad Request -- Your request is invalid.</td>
-</tr>
-<tr>
-<td>401</td>
-<td>Unauthorized -- Your API key is wrong.</td>
-</tr>
-<tr>
-<td>403</td>
-<td>Forbidden -- The kitten requested is hidden for administrators only.</td>
-</tr>
-<tr>
 <td>404</td>
-<td>Not Found -- The specified kitten could not be found.</td>
-</tr>
-<tr>
-<td>405</td>
-<td>Method Not Allowed -- You tried to access a kitten with an invalid method.</td>
-</tr>
-<tr>
-<td>406</td>
-<td>Not Acceptable -- You requested a format that isn&#39;t json.</td>
-</tr>
-<tr>
-<td>410</td>
-<td>Gone -- The kitten requested has been removed from our servers.</td>
-</tr>
-<tr>
-<td>418</td>
-<td>I&#39;m a teapot.</td>
-</tr>
-<tr>
-<td>429</td>
-<td>Too Many Requests -- You&#39;re requesting too many kittens! Slow down!</td>
+<td>Not Found -- The specified endpoint could not be found.</td>
 </tr>
 <tr>
 <td>500</td>
 <td>Internal Server Error -- We had a problem with our server. Try again later.</td>
 </tr>
-<tr>
-<td>503</td>
-<td>Service Unavailable -- We&#39;re temporarily offline for maintenance. Please try again later.</td>
-</tr>
 </tbody></table>
 
       </div>
       <div class="dark-box">
-          <div class="lang-selector">
-                <a href="#" data-language-name="shell">shell</a>
-                <a href="#" data-language-name="ruby">ruby</a>
-                <a href="#" data-language-name="python">python</a>
-                <a href="#" data-language-name="javascript">javascript</a>
-          </div>
       </div>
     </div>
   </body>
