@@ -260,6 +260,9 @@
                     <a href="#create-a-vote" class="toc-h2 toc-link" data-title="Create a Vote">Create a Vote</a>
                   </li>
                   <li>
+                    <a href="#change-a-vote" class="toc-h2 toc-link" data-title="Change a Vote">Change a Vote</a>
+                  </li>
+                  <li>
                     <a href="#delete-a-specific-vote" class="toc-h2 toc-link" data-title="Delete a Specific Vote">Delete a Specific Vote</a>
                   </li>
               </ul>
@@ -666,43 +669,39 @@ You must replace <code>apikeyhere</code> with your personal API key.
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <blockquote>
-<p>This endpoint returns a JSON structured like this:
-<code>json
-{
-    &quot;message&quot;: &quot;Vote was created&quot;,
-    &quot;vote&quot;: {
-        &quot;vid&quot;: 74,
-        &quot;pid&quot;: 257,
-        &quot;uid&quot;: 5,
-        &quot;value&quot;: 1
-    }
-}
-</code></p>
+<p>This endpoint returns a JSON structured like this:</p>
 </blockquote>
-
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Vote was created"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"vote"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"vid"</span><span class="p">:</span><span class="w"> </span><span class="mi">74</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"pid"</span><span class="p">:</span><span class="w"> </span><span class="mi">257</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"uid"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
 <p>This endpoint creates a vote.</p>
 <h3 id='http-request-3'>HTTP Request</h3>
 <p><code>POST http://example.com/votes</code></p>
-<h3 id='change-a-vote'>Change a Vote</h3>
+<h2 id='change-a-vote'>Change a Vote</h2>
 <blockquote>
-<p>This endpoint requires a body like this:
-<code>json
-{
-    &quot;pid&quot;: 257,
-    &quot;uid&quot;: 5,
-    &quot;value&quot;: 0
-}
-</code></p>
-
-<p>This endpoint returns a JSON structured like this:
-<code>json
-{
-    &quot;message&quot;: &quot;Vote for proposalID 257 by userID 5 was updated&quot;,
-    &quot;value&quot;: 0
-}
-</code></p>
+<p>This endpoint requires a body like this:</p>
 </blockquote>
-
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"pid"</span><span class="p">:</span><span class="w"> </span><span class="mi">257</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"uid"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p>This endpoint returns a JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Vote for proposalID 257 by userID 5 was updated"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
 <p>This endpoint changes a vote.</p>
 <h3 id='http-request-4'>HTTP Request</h3>
 <p><code>PATCH https://api.solonedu.com/votes</code></p>
