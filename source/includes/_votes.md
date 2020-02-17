@@ -93,6 +93,7 @@ userID | ID of the user that voted
 ```
 
 > This endpoint returns a JSON structured like this:
+
 ```json
 {
     "message": "Vote was created",
@@ -111,9 +112,10 @@ This endpoint creates a vote.
 
 `POST http://example.com/votes`
 
-### Change a Vote
+## Change a Vote
 
 > This endpoint requires a body like this:
+
 ```json
 {
 	"pid": 257,
@@ -123,6 +125,7 @@ This endpoint creates a vote.
 ```
 
 > This endpoint returns a JSON structured like this:
+
 ```json
 {
     "message": "Vote for proposalID 257 by userID 5 was updated",
