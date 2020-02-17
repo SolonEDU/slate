@@ -84,12 +84,12 @@ This endpoint retrieves all proposals.
 
 Parameter | Description
 --------- | -----------
-numvotes.asc | Sorted by least to greatest number of votes
-numvotes.desc | Sorted by greatest to least number of votes
-starttime.asc | Sorted by oldest to newest time of proposal creation
-starttime.desc | Sorted by newest to oldest time of proposal creation
-endtime.asc | Sorted by oldest to newest time of proposal expiration
-endtime.desc | Sorted by newest to oldest time of proposal expiration
+numvotes.asc | sorted by least to greatest number of votes
+numvotes.desc | sorted by greatest to least number of votes
+starttime.asc | sorted by oldest to newest time of proposal creation
+starttime.desc | sorted by newest to oldest time of proposal creation
+endtime.asc | sorted by oldest to newest time of proposal expiration
+endtime.desc | sorted by newest to oldest time of proposal expiration
 
 ## Search for a Proposal
 
@@ -149,13 +149,13 @@ This endpoint retrieves a specific proposal.
 
 ### HTTP Request
 
-`GET https://api.solonedu.com/proposals/<ID>`
+`GET https://api.solonedu.com/proposals/<proposalID>`
 
 ### URL Parameters
 
 Parameter | Description
 --------- | -----------
-ID | The ID of the proposal to retrieve
+proposalID | ID of the proposal to retrieve
 
 ## Create a Proposal
 
@@ -192,11 +192,11 @@ ID | The ID of the proposal to retrieve
 }
 ```
 
-This endpoint creates a specific proposal.
+This endpoint creates a proposal.
 
 ### HTTP Request
 
-`POST http://example.com/proposals`
+`POST https://api.solonedu.com/proposals`
 
 ## Delete a Specific Proposal
 
@@ -212,10 +212,10 @@ This endpoint deletes a specific proposal.
 
 ### HTTP Request
 
-`DELETE http://example.com/proposals/<ID>`
+`DELETE https://api.solonedu.com/proposals/<proposalID>`
 
 ### URL Parameters
 
 Parameter | Description
 --------- | -----------
-ID | The ID of the proposal to delete
+proposalID | ID of the proposal to delete
