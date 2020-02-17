@@ -159,7 +159,7 @@ ID | The ID of the proposal to retrieve
 
 ## Create a Proposal
 
-> This endpoint creates a body like this:
+> This endpoint requires a body like this:
 
 ```json
 {
