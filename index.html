@@ -336,6 +336,26 @@
           </li>
           <li>
             <a href="#comments" class="toc-h1 toc-link" data-title="Comments">Comments</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#comment-model" class="toc-h2 toc-link" data-title="Comment Model">Comment Model</a>
+                  </li>
+                  <li>
+                    <a href="#get-all-comments" class="toc-h2 toc-link" data-title="Get All Comments">Get All Comments</a>
+                  </li>
+                  <li>
+                    <a href="#get-a-specific-comment" class="toc-h2 toc-link" data-title="Get a Specific Comment">Get a Specific Comment</a>
+                  </li>
+                  <li>
+                    <a href="#get-all-comments-for-a-specific-forum-post" class="toc-h2 toc-link" data-title="Get All Comments for a Specific Forum Post">Get All Comments for a Specific Forum Post</a>
+                  </li>
+                  <li>
+                    <a href="#create-a-comment" class="toc-h2 toc-link" data-title="Create a Comment">Create a Comment</a>
+                  </li>
+                  <li>
+                    <a href="#delete-a-specific-comment" class="toc-h2 toc-link" data-title="Delete a Specific Comment">Delete a Specific Comment</a>
+                  </li>
+              </ul>
           </li>
           <li>
             <a href="#users" class="toc-h1 toc-link" data-title="Users">Users</a>
@@ -1362,7 +1382,200 @@ You must replace <code>apikeyhere</code> with your personal API key.
 <td>ID of the forum post to delete</td>
 </tr>
 </tbody></table>
-<h1 id='comments'>Comments</h1><h1 id='users'>Users</h1><h1 id='admins'>Admins</h1><h1 id='errors'>Errors</h1>
+<h1 id='comments'>Comments</h1><h2 id='comment-model'>Comment Model</h2>
+<blockquote>
+<p>Comments are stored in a model structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"cid"</span><span class="p">:</span><span class="w"> </span><span class="mi">107</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"fid"</span><span class="p">:</span><span class="w"> </span><span class="mi">69</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"content"</span><span class="p">:</span><span class="w"> </span><span class="s2">"{</span><span class="se">\"</span><span class="s2">en</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">hey</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">zhcn</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">嘿</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">zhtw</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">嘿</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">bn</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">অঁ্যা</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">ko</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">야</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">ru</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">Привет</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">ja</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">ねえ</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">uk</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">гей</span><span class="se">\"</span><span class="s2">}"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-02-17T14:00:35.431Z"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"uid"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><h3 id='fields'>Fields</h3>
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>cid</td>
+<td>ID of the comment</td>
+</tr>
+<tr>
+<td>fid</td>
+<td>ID of the forum post the comment was created on</td>
+</tr>
+<tr>
+<td>content</td>
+<td>JSON with language code as key and translated content as value</td>
+</tr>
+<tr>
+<td>timestamp</td>
+<td>timestamp for creation of the comment</td>
+</tr>
+<tr>
+<td>uid</td>
+<td>user ID of the user that created the comment</td>
+</tr>
+</tbody></table>
+<h2 id='get-all-comments'>Get All Comments</h2>
+<blockquote>
+<p>This endpoint returns a JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"All comments were fetched"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"comments"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"cid"</span><span class="p">:</span><span class="w"> </span><span class="mi">107</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"fid"</span><span class="p">:</span><span class="w"> </span><span class="mi">69</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"content"</span><span class="p">:</span><span class="w"> </span><span class="s2">"{</span><span class="se">\"</span><span class="s2">en</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">hey</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">zhcn</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">嘿</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">zhtw</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">嘿</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">bn</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">অঁ্যা</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">ko</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">야</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">ru</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">Привет</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">ja</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">ねえ</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">uk</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">гей</span><span class="se">\"</span><span class="s2">}"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-02-17T14:00:35.431Z"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"uid"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"cid"</span><span class="p">:</span><span class="w"> </span><span class="mi">108</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"fid"</span><span class="p">:</span><span class="w"> </span><span class="mi">69</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"content"</span><span class="p">:</span><span class="w"> </span><span class="s2">"{</span><span class="se">\"</span><span class="s2">en</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">what's up</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">zhcn</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">这是怎么回事</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">zhtw</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">這是怎麼回事</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">bn</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">কি খবর</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">ko</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">뭐야</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">ru</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">что происходит</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">ja</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">調子はどう</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">uk</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">як справи</span><span class="se">\"</span><span class="s2">}"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-02-18T22:18:20.828Z"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"uid"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint retrieves all comments.</p>
+<h3 id='http-request'>HTTP Request</h3>
+<p><code>GET https://api.solonedu.com/comments</code></p>
+<h2 id='get-a-specific-comment'>Get a Specific Comment</h2>
+<blockquote>
+<p>This endpoint returns a JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Comment with commentID 107 was fetched"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"comment"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"cid"</span><span class="p">:</span><span class="w"> </span><span class="mi">107</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"fid"</span><span class="p">:</span><span class="w"> </span><span class="mi">69</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"content"</span><span class="p">:</span><span class="w"> </span><span class="s2">"{</span><span class="se">\"</span><span class="s2">en</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">hey</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">zhcn</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">嘿</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">zhtw</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">嘿</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">bn</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">অঁ্যা</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">ko</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">야</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">ru</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">Привет</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">ja</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">ねえ</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">uk</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">гей</span><span class="se">\"</span><span class="s2">}"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-02-17T14:00:35.431Z"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"uid"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint retrieves a specific comment.</p>
+<h3 id='http-request-2'>HTTP Request</h3>
+<p><code>GET https://api.solonedu.com/comment/&lt;commentID&gt;</code></p>
+<h3 id='url-parameters'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>commentID</td>
+<td>ID of the comment to retrieve</td>
+</tr>
+</tbody></table>
+<h2 id='get-all-comments-for-a-specific-forum-post'>Get All Comments for a Specific Forum Post</h2>
+<blockquote>
+<p>This endpoint returns a JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"All comments for forum post with forumpostID 69 were fetched"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"comments"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"cid"</span><span class="p">:</span><span class="w"> </span><span class="mi">108</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"fid"</span><span class="p">:</span><span class="w"> </span><span class="mi">69</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"content"</span><span class="p">:</span><span class="w"> </span><span class="s2">"{</span><span class="se">\"</span><span class="s2">en</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">what's up</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">zhcn</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">这是怎么回事</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">zhtw</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">這是怎麼回事</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">bn</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">কি খবর</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">ko</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">뭐야</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">ru</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">что происходит</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">ja</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">調子はどう</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">uk</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">як справи</span><span class="se">\"</span><span class="s2">}"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-02-18T22:18:20.828Z"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"uid"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"cid"</span><span class="p">:</span><span class="w"> </span><span class="mi">107</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"fid"</span><span class="p">:</span><span class="w"> </span><span class="mi">69</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"content"</span><span class="p">:</span><span class="w"> </span><span class="s2">"{</span><span class="se">\"</span><span class="s2">en</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">hey</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">zhcn</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">嘿</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">zhtw</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">嘿</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">bn</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">অঁ্যা</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">ko</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">야</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">ru</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">Привет</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">ja</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">ねえ</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">uk</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">гей</span><span class="se">\"</span><span class="s2">}"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-02-17T14:00:35.431Z"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"uid"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint retrieves all comments for a specific forum post.</p>
+<h3 id='http-request-3'>HTTP Request</h3>
+<p><code>GET https://api.solonedu.com/comments/forumpost/&lt;forumpostID&gt;</code></p>
+<h3 id='url-parameters-2'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>forumpostID</td>
+<td>ID of the forumpost which has the comments to retrieve</td>
+</tr>
+</tbody></table>
+<h2 id='create-a-comment'>Create a Comment</h2>
+<blockquote>
+<p>This endpoint requires a body like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"fid"</span><span class="p">:</span><span class="w"> </span><span class="mi">69</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"content"</span><span class="p">:</span><span class="w"> </span><span class="s2">"this is the content"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-07-28T19:23:51Z"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"uid"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p>This endpoint returns a JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Comment was created"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"comment"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"cid"</span><span class="p">:</span><span class="w"> </span><span class="mi">109</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"fid"</span><span class="p">:</span><span class="w"> </span><span class="mi">69</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"content"</span><span class="p">:</span><span class="w"> </span><span class="s2">"{</span><span class="se">\"</span><span class="s2">en</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">this is the content</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">zhcn</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">这是内容</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">zhtw</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">這是內容</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">bn</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">এই বিষয়বস্তু</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">ko</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">이것은 내용입니다</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">ru</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">это содержание</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">ja</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">これはコンテンツです</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">uk</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">це зміст</span><span class="se">\"</span><span class="s2">}"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-07-28T19:23:51.000Z"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"uid"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint creates a comment.</p>
+<h3 id='http-request-4'>HTTP Request</h3>
+<p><code>POST https://api.solonedu.com/comments</code></p>
+<h2 id='delete-a-specific-comment'>Delete a Specific Comment</h2>
+<blockquote>
+<p>This endpoint requires a body like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"fid"</span><span class="p">:</span><span class="w"> </span><span class="mi">69</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p>This endpoint returns a JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Comment with commentID 109 was deleted"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint deletes a specific comment.</p>
+<h3 id='http-request-5'>HTTP Request</h3>
+<p><code>DELETE https://api.solonedu.com/comments/&lt;commentID&gt;</code></p>
+<h3 id='url-parameters-3'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>commentID</td>
+<td>ID of the comment to delete</td>
+</tr>
+</tbody></table>
+<h1 id='users'>Users</h1><h1 id='admins'>Admins</h1><h1 id='errors'>Errors</h1>
 <p>The Solon API uses the following error codes:</p>
 
 <table><thead>
