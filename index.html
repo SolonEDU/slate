@@ -385,6 +385,23 @@
           </li>
           <li>
             <a href="#admins" class="toc-h1 toc-link" data-title="Admins">Admins</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#admins-model" class="toc-h2 toc-link" data-title="Admins Model">Admins Model</a>
+                  </li>
+                  <li>
+                    <a href="#get-a-specific-admin" class="toc-h2 toc-link" data-title="Get A Specific Admin">Get A Specific Admin</a>
+                  </li>
+                  <li>
+                    <a href="#login-an-admin" class="toc-h2 toc-link" data-title="Login an Admin">Login an Admin</a>
+                  </li>
+                  <li>
+                    <a href="#register-an-admin" class="toc-h2 toc-link" data-title="Register an Admin">Register an Admin</a>
+                  </li>
+                  <li>
+                    <a href="#delete-a-specific-admin" class="toc-h2 toc-link" data-title="Delete a Specific Admin">Delete a Specific Admin</a>
+                  </li>
+              </ul>
           </li>
           <li>
             <a href="#status-codes" class="toc-h1 toc-link" data-title="Status Codes">Status Codes</a>
@@ -1786,7 +1803,126 @@ You must replace <code>apikeyhere</code> with your personal API key.
 <td>ID of the user to delete</td>
 </tr>
 </tbody></table>
-<h1 id='admins'>Admins</h1><h1 id='status-codes'>Status Codes</h1>
+<h1 id='admins'>Admins</h1><h2 id='admins-model'>Admins Model</h2>
+<blockquote>
+<p>Admins are stored in a model structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"adminid"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"username"</span><span class="p">:</span><span class="w"> </span><span class="s2">"admin"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"password"</span><span class="p">:</span><span class="w"> </span><span class="s2">"$2b$10$YzC1owZJxajF9NzmLW.8CucPz4xRaCGOJjKEbemMNZQEbBMh5PrjS"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><h3 id='fields'>Fields</h3>
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>adminid</td>
+<td>ID of the admin</td>
+</tr>
+<tr>
+<td>username</td>
+<td>username of the admin</td>
+</tr>
+<tr>
+<td>password</td>
+<td>hashed password of the admin</td>
+</tr>
+</tbody></table>
+<h2 id='get-a-specific-admin'>Get A Specific Admin</h2>
+<blockquote>
+<p>This endpoint returns a JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Admin with adminID 1 was fetched"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"admin"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"adminid"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"username"</span><span class="p">:</span><span class="w"> </span><span class="s2">"admin"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"password"</span><span class="p">:</span><span class="w"> </span><span class="s2">"$2b$10$YzC1owZJxajF9NzmLW.8CucPz4xRaCGOJjKEbemMNZQEbBMh5PrjS"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint retrieves a specific admin.</p>
+<h3 id='http-request'>HTTP Request</h3>
+<p><code>GET https://api.solonedu.com/admins/&lt;adminID&gt;</code></p>
+<h3 id='url-parameters'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>adminID</td>
+<td>ID of the admin to retrieve</td>
+</tr>
+</tbody></table>
+<h2 id='login-an-admin'>Login an Admin</h2>
+<blockquote>
+<p>This endpoint requires a body like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"username"</span><span class="p">:</span><span class="w"> </span><span class="s2">"username"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"password"</span><span class="p">:</span><span class="w"> </span><span class="s2">"password"</span><span class="w"> 
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p>This endpoint returns a JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"username"</span><span class="p">:</span><span class="w"> </span><span class="s2">"admin"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"password"</span><span class="p">:</span><span class="w"> </span><span class="s2">"password"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint attempts to authenticate an admin upon login.</p>
+<h3 id='http-request-2'>HTTP Request</h3>
+<p><code>POST https://api.solonedu.com/admins/login</code></p>
+<h2 id='register-an-admin'>Register an Admin</h2>
+<blockquote>
+<p>This endpoint requires a body like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"username"</span><span class="p">:</span><span class="w"> </span><span class="s2">"username"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"password"</span><span class="p">:</span><span class="w"> </span><span class="s2">"password"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p>This endpoint returns a JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Admin with username username was registered"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint attempts to register an admin.</p>
+<h3 id='http-request-3'>HTTP Request</h3>
+<p><code>POST https://api.solonedu.com/admins/register</code></p>
+<h2 id='delete-a-specific-admin'>Delete a Specific Admin</h2>
+<blockquote>
+<p>This endpoint returns a JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Admin with adminID 2 was deleted"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint deletes a specific admin.</p>
+<h3 id='http-request-4'>HTTP Request</h3>
+<p><code>DELETE https://api.solonedu.com/admins/&lt;adminID&gt;</code></p>
+<h3 id='url-parameters-2'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>adminID</td>
+<td>ID of the admin to delete</td>
+</tr>
+</tbody></table>
+<h1 id='status-codes'>Status Codes</h1>
 <p>The Solon API uses the following status codes:</p>
 
 <table><thead>
