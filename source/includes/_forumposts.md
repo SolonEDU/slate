@@ -1,22 +1,19 @@
 # Forum Posts
 
-## Proposal Model
+## Forum Post Model
 
-> Proposals are stored in a model structured like this:
+> Forum posts are stored in a model structured like this:
 
 ```json
 {
-    "pid": 257,
-    "title": "{\"en\":\"This is a title\",\"zhcn\":\"这是一个标题\",\"zhtw\":\"這是一個標題\",\"bn\":\"এটি একটি শিরোনাম\",\"ko\":\"제목입니다\",\"ru\":\"Это название\",\"ja\":\"これはタイトルです\",\"uk\":\"Це заголовок\"}",
-    "description": "{\"en\":\"This is a description\",\"zhcn\":\"这是一个描述\",\"zhtw\":\"這是一個描述\",\"bn\":\"এটি একটি বিবরণ\",\"ko\":\"이것은 설명입니다\",\"ru\":\"Это описание\",\"ja\":\"これは説明です\",\"uk\":\"Це опис\"}",
-    "starttime": "2020-07-14T19:23:51.000Z",
-    "endtime": "2020-07-28T19:23:51.000Z",
-    "uid": 5,
-    "numyes": 0,
-    "numno": 0,
-    "numvotes": 0,
-    "entitle": "faf",
-    "endescription": "faf"
+    "fid": 70,
+    "title": "{\"en\":\"hello\",\"zhcn\":\"你好\",\"zhtw\":\"你好\",\"bn\":\"হ্যালো\",\"ko\":\"여보세요\",\"ru\":\"Здравствуйте\",\"ja\":\"こんにちは\",\"uk\":\"Здравствуйте\"}",
+    "description": "{\"en\":\"WorLd\",\"zhcn\":\"世界\",\"zhtw\":\"世界\",\"bn\":\"দুনিয়া\",\"ko\":\"세계\",\"ru\":\"Мир\",\"ja\":\"世界\",\"uk\":\"WorLd\"}",
+    "numcomments": 0,
+    "timestamp": "2020-02-15T16:02:53.351Z",
+    "uid": 1,
+    "entitle": "hello",
+    "endescription": "WorLd"
 }
 ```
 
@@ -24,149 +21,131 @@
 
 Field | Description
 ----- | -----------
-pid | ID of the proposal
+fid | ID of the forum post
 title | JSON with language code as key and translated title as value
 description | JSON with language code as key and translated description as value
-starttime | timestamp for creation of the proposal
-endtime | timestamp for end of the proposal
-uid | user ID of the user that created the proposal
-numyes | number of yes votes on the proposal
-numno | number of no votes on the proposal
-numvotes | number of votes on the proposal
-entitle | English string of the proposal title
-endescription | English string of the proposal description
+numcomments | number of votes on the forum post
+timestamp | timestamp for creation of the forum post
+uid | user ID of the user that created the forum post
+entitle | English string of the forum post title
+endescription | English string of the forum post description
 
-## Get All Proposals
+## Get All Forum Posts
 
 > This endpoint returns a JSON structured like this:
 
 ```json
 {
-    "message": "All proposals were fetched in order of numvotes ascending",
-    "proposals": [
+    "message": "All forumposts were fetched in order of timestamp ascending",
+    "forumposts": [
         {
-            "pid": 249,
-            "title": "{\"en\":\"faf\",\"zhcn\":\"FAF\",\"zhtw\":\"FAF\",\"bn\":\"ফাফ\",\"ko\":\"FAF\",\"ru\":\"FAF\",\"ja\":\"FAF\",\"uk\":\"FAF\"}",
-            "description": "{\"en\":\"faf\",\"zhcn\":\"FAF\",\"zhtw\":\"FAF\",\"bn\":\"ফাফ\",\"ko\":\"FAF\",\"ru\":\"FAF\",\"ja\":\"FAF\",\"uk\":\"FAF\"}",
-            "starttime": "2020-02-14T16:02:42.788Z",
-            "endtime": "2020-02-21T16:02:42.788Z",
-            "uid": 0,
-            "numyes": 0,
-            "numno": 0,
-            "numvotes": 0,
-            "entitle": "faf",
-            "endescription": "faf"
+            "fid": 69,
+            "title": "{\"en\":\"ff\",\"zhcn\":\"ff\",\"zhtw\":\"ff\",\"bn\":\"FF\",\"ko\":\"ff\",\"ru\":\"Ф.Ф.\",\"ja\":\"ff\",\"uk\":\"ff\"}",
+            "description": "{\"en\":\"ffdfffffffff\",\"zhcn\":\"d\",\"zhtw\":\"d\",\"bn\":\"ffdfffffffff\",\"ko\":\"ffdfffffffff\",\"ru\":\"ffdfffffffff\",\"ja\":\"ffdfffffffff\",\"uk\":\"ffdfffffffff\"}",
+            "numcomments": 1,
+            "timestamp": "2020-02-15T15:58:33.266Z",
+            "uid": 1,
+            "entitle": "ff",
+            "endescription": "ffdfffffffff"
         },
         {
-            "pid": 251,
-            "title": "{\"en\":\"vg\",\"zhcn\":\"vg\",\"zhtw\":\"vg\",\"bn\":\"VG\",\"ko\":\"vg\",\"ru\":\"В.Г.\",\"ja\":\"vg\",\"uk\":\"vg\"}",
-            "description": "{\"en\":\"vff\",\"zhcn\":\"VFF\",\"zhtw\":\"VFF\",\"bn\":\"vff\",\"ko\":\"VFF\",\"ru\":\"ВФФ\",\"ja\":\"VFF\",\"uk\":\"ВФФ\"}",
-            "starttime": "2020-02-14T16:52:15.540Z",
-            "endtime": "2020-02-21T16:52:15.540Z",
-            "uid": 0,
-            "numyes": 0,
-            "numno": 0,
-            "numvotes": 0,
-            "entitle": "vg",
-            "endescription": "vff"
+            "fid": 70,
+            "title": "{\"en\":\"hello\",\"zhcn\":\"你好\",\"zhtw\":\"你好\",\"bn\":\"হ্যালো\",\"ko\":\"여보세요\",\"ru\":\"Здравствуйте\",\"ja\":\"こんにちは\",\"uk\":\"Здравствуйте\"}",
+            "description": "{\"en\":\"WorLd\",\"zhcn\":\"世界\",\"zhtw\":\"世界\",\"bn\":\"দুনিয়া\",\"ko\":\"세계\",\"ru\":\"Мир\",\"ja\":\"世界\",\"uk\":\"WorLd\"}",
+            "numcomments": 0,
+            "timestamp": "2020-02-15T16:02:53.351Z",
+            "uid": 1,
+            "entitle": "hello",
+            "endescription": "WorLd"
         }
     ]
 }
 ```
 
-This endpoint retrieves all proposals.
+This endpoint retrieves all forum posts.
 
 ### HTTP Request
 
-`GET https://api.solonedu.com/proposals?sort_by=<sort.order>`
+`GET https://api.solonedu.com/forumposts?sort_by=<sort.order>`
 
 ### sort_by Query Parameter
 
 Parameter | Description
 --------- | -----------
-numvotes.asc | sorted by least to greatest number of votes
-numvotes.desc | sorted by greatest to least number of votes
-starttime.asc | sorted by oldest to newest time of proposal creation
-starttime.desc | sorted by newest to oldest time of proposal creation
-endtime.asc | sorted by oldest to newest time of proposal expiration
-endtime.desc | sorted by newest to oldest time of proposal expiration
+numcomments.asc | sorted by least to greatest number of comments
+numcomments.desc | sorted by greatest to least number of comments
+timestamp.asc | sorted by oldest to newest time of forum post creation
+timestamp.desc | sorted by newest to oldest time of forum post creation
 
-## Search for a Proposal
+## Search for a Forum Post
 
 > This endpoint returns a JSON structured like this:
 
 ```json
 {
-    "message": "All proposals with search query in title or description were fetched",
-    "proposals": [
+    "message": "All forumposts with search query in title or description were fetched",
+    "forumposts": [
         {
-            "pid": 251,
-            "title": "{\"en\":\"vg\",\"zhcn\":\"vg\",\"zhtw\":\"vg\",\"bn\":\"VG\",\"ko\":\"vg\",\"ru\":\"В.Г.\",\"ja\":\"vg\",\"uk\":\"vg\"}",
-            "description": "{\"en\":\"vff\",\"zhcn\":\"VFF\",\"zhtw\":\"VFF\",\"bn\":\"vff\",\"ko\":\"VFF\",\"ru\":\"ВФФ\",\"ja\":\"VFF\",\"uk\":\"ВФФ\"}",
-            "starttime": "2020-02-14T16:52:15.540Z",
-            "endtime": "2020-02-21T16:52:15.540Z",
-            "uid": 0,
-            "numyes": 0,
-            "numno": 0,
-            "numvotes": 0,
-            "entitle": "vg",
-            "endescription": "vff"
+            "fid": 70,
+            "title": "{\"en\":\"hello\",\"zhcn\":\"你好\",\"zhtw\":\"你好\",\"bn\":\"হ্যালো\",\"ko\":\"여보세요\",\"ru\":\"Здравствуйте\",\"ja\":\"こんにちは\",\"uk\":\"Здравствуйте\"}",
+            "description": "{\"en\":\"WorLd\",\"zhcn\":\"世界\",\"zhtw\":\"世界\",\"bn\":\"দুনিয়া\",\"ko\":\"세계\",\"ru\":\"Мир\",\"ja\":\"世界\",\"uk\":\"WorLd\"}",
+            "numcomments": 0,
+            "timestamp": "2020-02-15T16:02:53.351Z",
+            "uid": 1,
+            "entitle": "hello",
+            "endescription": "WorLd"
         }
     ]
 }
 ```
 
-This endpoint retrieves all proposals with the search query in its title or description.
+This endpoint retrieves all forum posts with the search query in its title or description.
 
 ### HTTP Request
 
-`GET https://api.solonedu.com/proposals?q=<query>`
+`GET https://api.solonedu.com/forumposts?q=<query>`
 
-## Get a Specific Proposal
+## Get a Specific Forum Post
 
 > This endpoint returns a JSON structured like this:
 
 ```json
 {
-    "message": "Proposal with proposalID 256 was fetched",
-    "proposal": {
-        "pid": 256,
-        "title": "{\"en\":\"ff\",\"zhcn\":\"ff\",\"zhtw\":\"ff\",\"bn\":\"FF\",\"ko\":\"ff\",\"ru\":\"Ф.Ф.\",\"ja\":\"ff\",\"uk\":\"ff\"}",
-        "description": "{\"en\":\"ffdfffffffff\",\"zhcn\":\"d\",\"zhtw\":\"d\",\"bn\":\"ffdfffffffff\",\"ko\":\"ffdfffffffff\",\"ru\":\"ffdfffffffff\",\"ja\":\"ffdfffffffff\",\"uk\":\"ffdfffffffff\"}",
-        "starttime": "2020-02-14T21:06:28.318Z",
-        "endtime": "2020-02-21T21:06:28.318Z",
-        "uid": 0,
-        "numyes": 1,
-        "numno": 0,
-        "numvotes": 1,
-        "entitle": "ff",
-        "endescription": "ffdfffffffff"
+    "message": "forumpost with forumpostID 70 was fetched",
+    "forumpost": {
+        "fid": 70,
+        "title": "{\"en\":\"hello\",\"zhcn\":\"你好\",\"zhtw\":\"你好\",\"bn\":\"হ্যালো\",\"ko\":\"여보세요\",\"ru\":\"Здравствуйте\",\"ja\":\"こんにちは\",\"uk\":\"Здравствуйте\"}",
+        "description": "{\"en\":\"WorLd\",\"zhcn\":\"世界\",\"zhtw\":\"世界\",\"bn\":\"দুনিয়া\",\"ko\":\"세계\",\"ru\":\"Мир\",\"ja\":\"世界\",\"uk\":\"WorLd\"}",
+        "numcomments": 0,
+        "timestamp": "2020-02-15T16:02:53.351Z",
+        "uid": 1,
+        "entitle": "hello",
+        "endescription": "WorLd"
     }
 }
 ```
 
-This endpoint retrieves a specific proposal.
+This endpoint retrieves a specific forum post.
 
 ### HTTP Request
 
-`GET https://api.solonedu.com/proposals/<proposalID>`
+`GET https://api.solonedu.com/forumposts/<forumpostID>`
 
 ### URL Parameters
 
 Parameter | Description
 --------- | -----------
-proposalID | ID of the proposal to retrieve
+forumpostID | ID of the forum post to retrieve
 
-## Create a Proposal
+## Create a Forum Post
 
 > This endpoint requires a body like this:
 
 ```json
 {
-	"title": "This is a title",
-	"description": "This is a description",
-	"starttime": "2020-07-14T19:23:51Z",
-	"endtime": "2020-07-28T19:23:51Z",
+	"title": "this is a title",
+	"description": "this is a description",
+	"timestamp": "2020-07-14T19:23:51Z",
 	"uid": 5
 }
 ```
@@ -175,47 +154,44 @@ proposalID | ID of the proposal to retrieve
 
 ```json
 {
-    "message": "Proposal was created",
-    "proposal": {
-        "numyes": 0,
-        "numno": 0,
-        "numvotes": 0,
-        "pid": 257,
-        "title": "{\"en\":\"This is a title\",\"zhcn\":\"这是一个标题\",\"zhtw\":\"這是一個標題\",\"bn\":\"এটি একটি শিরোনাম\",\"ko\":\"제목입니다\",\"ru\":\"Это название\",\"ja\":\"これはタイトルです\",\"uk\":\"Це заголовок\"}",
-        "description": "{\"en\":\"This is a description\",\"zhcn\":\"这是一个描述\",\"zhtw\":\"這是一個描述\",\"bn\":\"এটি একটি বিবরণ\",\"ko\":\"이것은 설명입니다\",\"ru\":\"Это описание\",\"ja\":\"これは説明です\",\"uk\":\"Це опис\"}",
-        "starttime": "2020-07-14T19:23:51.000Z",
-        "endtime": "2020-07-28T19:23:51.000Z",
+    "message": "Forumpost was created",
+    "forumpost": {
+        "fid": 71,
+        "title": "{\"en\":\"this is a title\",\"zhcn\":\"这是一个标题\",\"zhtw\":\"這是一個標題\",\"bn\":\"এটি একটি শিরোনাম\",\"ko\":\"이것은 제목입니다\",\"ru\":\"это название\",\"ja\":\"これはタイトルです\",\"uk\":\"це заголовок\"}",
+        "description": "{\"en\":\"this is a description\",\"zhcn\":\"这是一个描述\",\"zhtw\":\"這是一個描述\",\"bn\":\"এটি একটি বিবরণ\",\"ko\":\"이것은 설명입니다\",\"ru\":\"это описание\",\"ja\":\"これは説明です\",\"uk\":\"це опис\"}",
+        "numcomments": 0,
+        "timestamp": "2020-07-14T19:23:51.000Z",
         "uid": 5,
-        "entitle": "This is a title",
-        "endescription": "This is a description"
+        "entitle": "this is a title",
+        "endescription": "this is a description"
     }
 }
 ```
 
-This endpoint creates a proposal.
+This endpoint creates a forum post.
 
 ### HTTP Request
 
-`POST https://api.solonedu.com/proposals`
+`POST https://api.solonedu.com/forumposts`
 
-## Delete a Specific Proposal
+## Delete a Specific Forum Post
 
 > This endpoint returns a JSON structured like this:
 
 ```json
 {
-    "message": "Proposal with proposalID 256 was deleted"
+    "message": "Forumpost with forumpostID 71 was deleted"
 }
 ```
 
-This endpoint deletes a specific proposal.
+This endpoint deletes a specific forum post.
 
 ### HTTP Request
 
-`DELETE https://api.solonedu.com/proposals/<proposalID>`
+`DELETE https://api.solonedu.com/forumposts/<forumpostID>`
 
 ### URL Parameters
 
 Parameter | Description
 --------- | -----------
-proposalID | ID of the proposal to delete
+forumpostID | ID of the forum post to delete
