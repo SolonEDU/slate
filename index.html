@@ -315,22 +315,22 @@
             <a href="#forum-posts" class="toc-h1 toc-link" data-title="Forum Posts">Forum Posts</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#proposal-model" class="toc-h2 toc-link" data-title="Proposal Model">Proposal Model</a>
+                    <a href="#forum-post-model" class="toc-h2 toc-link" data-title="Forum Post Model">Forum Post Model</a>
                   </li>
                   <li>
-                    <a href="#get-all-proposals" class="toc-h2 toc-link" data-title="Get All Proposals">Get All Proposals</a>
+                    <a href="#get-all-forum-posts" class="toc-h2 toc-link" data-title="Get All Forum Posts">Get All Forum Posts</a>
                   </li>
                   <li>
-                    <a href="#search-for-a-proposal" class="toc-h2 toc-link" data-title="Search for a Proposal">Search for a Proposal</a>
+                    <a href="#search-for-a-forum-post" class="toc-h2 toc-link" data-title="Search for a Forum Post">Search for a Forum Post</a>
                   </li>
                   <li>
-                    <a href="#get-a-specific-proposal" class="toc-h2 toc-link" data-title="Get a Specific Proposal">Get a Specific Proposal</a>
+                    <a href="#get-a-specific-forum-post" class="toc-h2 toc-link" data-title="Get a Specific Forum Post">Get a Specific Forum Post</a>
                   </li>
                   <li>
-                    <a href="#create-a-proposal" class="toc-h2 toc-link" data-title="Create a Proposal">Create a Proposal</a>
+                    <a href="#create-a-forum-post" class="toc-h2 toc-link" data-title="Create a Forum Post">Create a Forum Post</a>
                   </li>
                   <li>
-                    <a href="#delete-a-specific-proposal" class="toc-h2 toc-link" data-title="Delete a Specific Proposal">Delete a Specific Proposal</a>
+                    <a href="#delete-a-specific-forum-post" class="toc-h2 toc-link" data-title="Delete a Specific Forum Post">Delete a Specific Forum Post</a>
                   </li>
               </ul>
           </li>
@@ -1141,22 +1141,19 @@ You must replace <code>apikeyhere</code> with your personal API key.
 <td>ID of the user that is attending</td>
 </tr>
 </tbody></table>
-<h1 id='forum-posts'>Forum Posts</h1><h2 id='proposal-model'>Proposal Model</h2>
+<h1 id='forum-posts'>Forum Posts</h1><h2 id='forum-post-model'>Forum Post Model</h2>
 <blockquote>
-<p>Proposals are stored in a model structured like this:</p>
+<p>Forum posts are stored in a model structured like this:</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-    </span><span class="s2">"pid"</span><span class="p">:</span><span class="w"> </span><span class="mi">257</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"{</span><span class="se">\"</span><span class="s2">en</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">This is a title</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">zhcn</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">这是一个标题</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">zhtw</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">這是一個標題</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">bn</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">এটি একটি শিরোনাম</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">ko</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">제목입니다</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">ru</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">Это название</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">ja</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">これはタイトルです</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">uk</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">Це заголовок</span><span class="se">\"</span><span class="s2">}"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"{</span><span class="se">\"</span><span class="s2">en</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">This is a description</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">zhcn</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">这是一个描述</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">zhtw</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">這是一個描述</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">bn</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">এটি একটি বিবরণ</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">ko</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">이것은 설명입니다</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">ru</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">Это описание</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">ja</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">これは説明です</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">uk</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">Це опис</span><span class="se">\"</span><span class="s2">}"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"starttime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-07-14T19:23:51.000Z"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"endtime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-07-28T19:23:51.000Z"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"uid"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"numyes"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"numno"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"numvotes"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"entitle"</span><span class="p">:</span><span class="w"> </span><span class="s2">"faf"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"endescription"</span><span class="p">:</span><span class="w"> </span><span class="s2">"faf"</span><span class="w">
+    </span><span class="s2">"fid"</span><span class="p">:</span><span class="w"> </span><span class="mi">70</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"{</span><span class="se">\"</span><span class="s2">en</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">hello</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">zhcn</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">你好</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">zhtw</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">你好</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">bn</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">হ্যালো</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">ko</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">여보세요</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">ru</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">Здравствуйте</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">ja</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">こんにちは</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">uk</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">Здравствуйте</span><span class="se">\"</span><span class="s2">}"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"{</span><span class="se">\"</span><span class="s2">en</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">WorLd</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">zhcn</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">世界</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">zhtw</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">世界</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">bn</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">দুনিয়া</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">ko</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">세계</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">ru</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">Мир</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">ja</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">世界</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">uk</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">WorLd</span><span class="se">\"</span><span class="s2">}"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"numcomments"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-02-15T16:02:53.351Z"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"uid"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"entitle"</span><span class="p">:</span><span class="w"> </span><span class="s2">"hello"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"endescription"</span><span class="p">:</span><span class="w"> </span><span class="s2">"WorLd"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre><h3 id='fields'>Fields</h3>
 <table><thead>
@@ -1166,8 +1163,8 @@ You must replace <code>apikeyhere</code> with your personal API key.
 </tr>
 </thead><tbody>
 <tr>
-<td>pid</td>
-<td>ID of the proposal</td>
+<td>fid</td>
+<td>ID of the forum post</td>
 </tr>
 <tr>
 <td>title</td>
@@ -1178,77 +1175,59 @@ You must replace <code>apikeyhere</code> with your personal API key.
 <td>JSON with language code as key and translated description as value</td>
 </tr>
 <tr>
-<td>starttime</td>
-<td>timestamp for creation of the proposal</td>
+<td>numcomments</td>
+<td>number of votes on the forum post</td>
 </tr>
 <tr>
-<td>endtime</td>
-<td>timestamp for end of the proposal</td>
+<td>timestamp</td>
+<td>timestamp for creation of the forum post</td>
 </tr>
 <tr>
 <td>uid</td>
-<td>user ID of the user that created the proposal</td>
-</tr>
-<tr>
-<td>numyes</td>
-<td>number of yes votes on the proposal</td>
-</tr>
-<tr>
-<td>numno</td>
-<td>number of no votes on the proposal</td>
-</tr>
-<tr>
-<td>numvotes</td>
-<td>number of votes on the proposal</td>
+<td>user ID of the user that created the forum post</td>
 </tr>
 <tr>
 <td>entitle</td>
-<td>English string of the proposal title</td>
+<td>English string of the forum post title</td>
 </tr>
 <tr>
 <td>endescription</td>
-<td>English string of the proposal description</td>
+<td>English string of the forum post description</td>
 </tr>
 </tbody></table>
-<h2 id='get-all-proposals'>Get All Proposals</h2>
+<h2 id='get-all-forum-posts'>Get All Forum Posts</h2>
 <blockquote>
 <p>This endpoint returns a JSON structured like this:</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-    </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"All proposals were fetched in order of numvotes ascending"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"proposals"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"All forumposts were fetched in order of timestamp ascending"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"forumposts"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
         </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"pid"</span><span class="p">:</span><span class="w"> </span><span class="mi">249</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"{</span><span class="se">\"</span><span class="s2">en</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">faf</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">zhcn</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">FAF</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">zhtw</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">FAF</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">bn</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">ফাফ</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">ko</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">FAF</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">ru</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">FAF</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">ja</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">FAF</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">uk</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">FAF</span><span class="se">\"</span><span class="s2">}"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"{</span><span class="se">\"</span><span class="s2">en</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">faf</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">zhcn</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">FAF</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">zhtw</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">FAF</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">bn</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">ফাফ</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">ko</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">FAF</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">ru</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">FAF</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">ja</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">FAF</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">uk</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">FAF</span><span class="se">\"</span><span class="s2">}"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"starttime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-02-14T16:02:42.788Z"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"endtime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-02-21T16:02:42.788Z"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"uid"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"numyes"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"numno"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"numvotes"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"entitle"</span><span class="p">:</span><span class="w"> </span><span class="s2">"faf"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"endescription"</span><span class="p">:</span><span class="w"> </span><span class="s2">"faf"</span><span class="w">
+            </span><span class="s2">"fid"</span><span class="p">:</span><span class="w"> </span><span class="mi">69</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"{</span><span class="se">\"</span><span class="s2">en</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">ff</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">zhcn</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">ff</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">zhtw</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">ff</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">bn</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">FF</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">ko</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">ff</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">ru</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">Ф.Ф.</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">ja</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">ff</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">uk</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">ff</span><span class="se">\"</span><span class="s2">}"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"{</span><span class="se">\"</span><span class="s2">en</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">ffdfffffffff</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">zhcn</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">d</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">zhtw</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">d</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">bn</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">ffdfffffffff</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">ko</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">ffdfffffffff</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">ru</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">ffdfffffffff</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">ja</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">ffdfffffffff</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">uk</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">ffdfffffffff</span><span class="se">\"</span><span class="s2">}"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"numcomments"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-02-15T15:58:33.266Z"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"uid"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"entitle"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ff"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"endescription"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ffdfffffffff"</span><span class="w">
         </span><span class="p">},</span><span class="w">
         </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"pid"</span><span class="p">:</span><span class="w"> </span><span class="mi">251</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"{</span><span class="se">\"</span><span class="s2">en</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">vg</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">zhcn</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">vg</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">zhtw</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">vg</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">bn</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">VG</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">ko</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">vg</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">ru</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">В.Г.</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">ja</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">vg</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">uk</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">vg</span><span class="se">\"</span><span class="s2">}"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"{</span><span class="se">\"</span><span class="s2">en</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">vff</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">zhcn</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">VFF</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">zhtw</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">VFF</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">bn</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">vff</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">ko</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">VFF</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">ru</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">ВФФ</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">ja</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">VFF</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">uk</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">ВФФ</span><span class="se">\"</span><span class="s2">}"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"starttime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-02-14T16:52:15.540Z"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"endtime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-02-21T16:52:15.540Z"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"uid"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"numyes"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"numno"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"numvotes"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"entitle"</span><span class="p">:</span><span class="w"> </span><span class="s2">"vg"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"endescription"</span><span class="p">:</span><span class="w"> </span><span class="s2">"vff"</span><span class="w">
+            </span><span class="s2">"fid"</span><span class="p">:</span><span class="w"> </span><span class="mi">70</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"{</span><span class="se">\"</span><span class="s2">en</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">hello</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">zhcn</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">你好</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">zhtw</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">你好</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">bn</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">হ্যালো</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">ko</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">여보세요</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">ru</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">Здравствуйте</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">ja</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">こんにちは</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">uk</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">Здравствуйте</span><span class="se">\"</span><span class="s2">}"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"{</span><span class="se">\"</span><span class="s2">en</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">WorLd</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">zhcn</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">世界</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">zhtw</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">世界</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">bn</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">দুনিয়া</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">ko</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">세계</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">ru</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">Мир</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">ja</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">世界</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">uk</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">WorLd</span><span class="se">\"</span><span class="s2">}"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"numcomments"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-02-15T16:02:53.351Z"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"uid"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"entitle"</span><span class="p">:</span><span class="w"> </span><span class="s2">"hello"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"endescription"</span><span class="p">:</span><span class="w"> </span><span class="s2">"WorLd"</span><span class="w">
         </span><span class="p">}</span><span class="w">
     </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>This endpoint retrieves all proposals.</p>
+<p>This endpoint retrieves all forum posts.</p>
 <h3 id='http-request'>HTTP Request</h3>
-<p><code>GET https://api.solonedu.com/proposals?sort_by=&lt;sort.order&gt;</code></p>
+<p><code>GET https://api.solonedu.com/forumposts?sort_by=&lt;sort.order&gt;</code></p>
 <h3 id='sort_by-query-parameter'>sort_by Query Parameter</h3>
 <table><thead>
 <tr>
@@ -1257,80 +1236,66 @@ You must replace <code>apikeyhere</code> with your personal API key.
 </tr>
 </thead><tbody>
 <tr>
-<td>numvotes.asc</td>
-<td>sorted by least to greatest number of votes</td>
+<td>numcomments.asc</td>
+<td>sorted by least to greatest number of comments</td>
 </tr>
 <tr>
-<td>numvotes.desc</td>
-<td>sorted by greatest to least number of votes</td>
+<td>numcomments.desc</td>
+<td>sorted by greatest to least number of comments</td>
 </tr>
 <tr>
-<td>starttime.asc</td>
-<td>sorted by oldest to newest time of proposal creation</td>
+<td>timestamp.asc</td>
+<td>sorted by oldest to newest time of forum post creation</td>
 </tr>
 <tr>
-<td>starttime.desc</td>
-<td>sorted by newest to oldest time of proposal creation</td>
-</tr>
-<tr>
-<td>endtime.asc</td>
-<td>sorted by oldest to newest time of proposal expiration</td>
-</tr>
-<tr>
-<td>endtime.desc</td>
-<td>sorted by newest to oldest time of proposal expiration</td>
+<td>timestamp.desc</td>
+<td>sorted by newest to oldest time of forum post creation</td>
 </tr>
 </tbody></table>
-<h2 id='search-for-a-proposal'>Search for a Proposal</h2>
+<h2 id='search-for-a-forum-post'>Search for a Forum Post</h2>
 <blockquote>
 <p>This endpoint returns a JSON structured like this:</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-    </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"All proposals with search query in title or description were fetched"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"proposals"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"All forumposts with search query in title or description were fetched"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"forumposts"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
         </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"pid"</span><span class="p">:</span><span class="w"> </span><span class="mi">251</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"{</span><span class="se">\"</span><span class="s2">en</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">vg</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">zhcn</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">vg</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">zhtw</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">vg</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">bn</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">VG</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">ko</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">vg</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">ru</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">В.Г.</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">ja</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">vg</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">uk</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">vg</span><span class="se">\"</span><span class="s2">}"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"{</span><span class="se">\"</span><span class="s2">en</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">vff</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">zhcn</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">VFF</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">zhtw</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">VFF</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">bn</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">vff</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">ko</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">VFF</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">ru</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">ВФФ</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">ja</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">VFF</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">uk</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">ВФФ</span><span class="se">\"</span><span class="s2">}"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"starttime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-02-14T16:52:15.540Z"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"endtime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-02-21T16:52:15.540Z"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"uid"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"numyes"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"numno"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"numvotes"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"entitle"</span><span class="p">:</span><span class="w"> </span><span class="s2">"vg"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"endescription"</span><span class="p">:</span><span class="w"> </span><span class="s2">"vff"</span><span class="w">
+            </span><span class="s2">"fid"</span><span class="p">:</span><span class="w"> </span><span class="mi">70</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"{</span><span class="se">\"</span><span class="s2">en</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">hello</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">zhcn</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">你好</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">zhtw</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">你好</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">bn</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">হ্যালো</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">ko</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">여보세요</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">ru</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">Здравствуйте</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">ja</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">こんにちは</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">uk</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">Здравствуйте</span><span class="se">\"</span><span class="s2">}"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"{</span><span class="se">\"</span><span class="s2">en</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">WorLd</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">zhcn</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">世界</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">zhtw</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">世界</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">bn</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">দুনিয়া</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">ko</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">세계</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">ru</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">Мир</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">ja</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">世界</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">uk</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">WorLd</span><span class="se">\"</span><span class="s2">}"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"numcomments"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-02-15T16:02:53.351Z"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"uid"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"entitle"</span><span class="p">:</span><span class="w"> </span><span class="s2">"hello"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"endescription"</span><span class="p">:</span><span class="w"> </span><span class="s2">"WorLd"</span><span class="w">
         </span><span class="p">}</span><span class="w">
     </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>This endpoint retrieves all proposals with the search query in its title or description.</p>
+<p>This endpoint retrieves all forum posts with the search query in its title or description.</p>
 <h3 id='http-request-2'>HTTP Request</h3>
-<p><code>GET https://api.solonedu.com/proposals?q=&lt;query&gt;</code></p>
-<h2 id='get-a-specific-proposal'>Get a Specific Proposal</h2>
+<p><code>GET https://api.solonedu.com/forumposts?q=&lt;query&gt;</code></p>
+<h2 id='get-a-specific-forum-post'>Get a Specific Forum Post</h2>
 <blockquote>
 <p>This endpoint returns a JSON structured like this:</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-    </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Proposal with proposalID 256 was fetched"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"proposal"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"pid"</span><span class="p">:</span><span class="w"> </span><span class="mi">256</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"{</span><span class="se">\"</span><span class="s2">en</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">ff</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">zhcn</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">ff</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">zhtw</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">ff</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">bn</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">FF</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">ko</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">ff</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">ru</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">Ф.Ф.</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">ja</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">ff</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">uk</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">ff</span><span class="se">\"</span><span class="s2">}"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"{</span><span class="se">\"</span><span class="s2">en</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">ffdfffffffff</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">zhcn</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">d</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">zhtw</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">d</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">bn</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">ffdfffffffff</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">ko</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">ffdfffffffff</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">ru</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">ffdfffffffff</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">ja</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">ffdfffffffff</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">uk</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">ffdfffffffff</span><span class="se">\"</span><span class="s2">}"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"starttime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-02-14T21:06:28.318Z"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"endtime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-02-21T21:06:28.318Z"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"uid"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"numyes"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"numno"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"numvotes"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"entitle"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ff"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"endescription"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ffdfffffffff"</span><span class="w">
+    </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"forumpost with forumpostID 70 was fetched"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"forumpost"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"fid"</span><span class="p">:</span><span class="w"> </span><span class="mi">70</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"{</span><span class="se">\"</span><span class="s2">en</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">hello</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">zhcn</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">你好</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">zhtw</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">你好</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">bn</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">হ্যালো</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">ko</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">여보세요</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">ru</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">Здравствуйте</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">ja</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">こんにちは</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">uk</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">Здравствуйте</span><span class="se">\"</span><span class="s2">}"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"{</span><span class="se">\"</span><span class="s2">en</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">WorLd</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">zhcn</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">世界</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">zhtw</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">世界</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">bn</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">দুনিয়া</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">ko</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">세계</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">ru</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">Мир</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">ja</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">世界</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">uk</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">WorLd</span><span class="se">\"</span><span class="s2">}"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"numcomments"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-02-15T16:02:53.351Z"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"uid"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"entitle"</span><span class="p">:</span><span class="w"> </span><span class="s2">"hello"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"endescription"</span><span class="p">:</span><span class="w"> </span><span class="s2">"WorLd"</span><span class="w">
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>This endpoint retrieves a specific proposal.</p>
+<p>This endpoint retrieves a specific forum post.</p>
 <h3 id='http-request-3'>HTTP Request</h3>
-<p><code>GET https://api.solonedu.com/proposals/&lt;proposalID&gt;</code></p>
+<p><code>GET https://api.solonedu.com/forumposts/&lt;forumpostID&gt;</code></p>
 <h3 id='url-parameters'>URL Parameters</h3>
 <table><thead>
 <tr>
@@ -1339,19 +1304,18 @@ You must replace <code>apikeyhere</code> with your personal API key.
 </tr>
 </thead><tbody>
 <tr>
-<td>proposalID</td>
-<td>ID of the proposal to retrieve</td>
+<td>forumpostID</td>
+<td>ID of the forum post to retrieve</td>
 </tr>
 </tbody></table>
-<h2 id='create-a-proposal'>Create a Proposal</h2>
+<h2 id='create-a-forum-post'>Create a Forum Post</h2>
 <blockquote>
 <p>This endpoint requires a body like this:</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-    </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"This is a title"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"This is a description"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"starttime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-07-14T19:23:51Z"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"endtime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-07-28T19:23:51Z"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"this is a title"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"this is a description"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-07-14T19:23:51Z"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"uid"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
@@ -1359,36 +1323,33 @@ You must replace <code>apikeyhere</code> with your personal API key.
 <p>This endpoint returns a JSON structured like this:</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-    </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Proposal was created"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"proposal"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"numyes"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"numno"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"numvotes"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"pid"</span><span class="p">:</span><span class="w"> </span><span class="mi">257</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"{</span><span class="se">\"</span><span class="s2">en</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">This is a title</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">zhcn</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">这是一个标题</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">zhtw</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">這是一個標題</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">bn</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">এটি একটি শিরোনাম</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">ko</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">제목입니다</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">ru</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">Это название</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">ja</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">これはタイトルです</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">uk</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">Це заголовок</span><span class="se">\"</span><span class="s2">}"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"{</span><span class="se">\"</span><span class="s2">en</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">This is a description</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">zhcn</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">这是一个描述</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">zhtw</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">這是一個描述</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">bn</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">এটি একটি বিবরণ</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">ko</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">이것은 설명입니다</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">ru</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">Это описание</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">ja</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">これは説明です</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">uk</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">Це опис</span><span class="se">\"</span><span class="s2">}"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"starttime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-07-14T19:23:51.000Z"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"endtime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-07-28T19:23:51.000Z"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Forumpost was created"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"forumpost"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"fid"</span><span class="p">:</span><span class="w"> </span><span class="mi">71</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"{</span><span class="se">\"</span><span class="s2">en</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">this is a title</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">zhcn</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">这是一个标题</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">zhtw</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">這是一個標題</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">bn</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">এটি একটি শিরোনাম</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">ko</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">이것은 제목입니다</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">ru</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">это название</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">ja</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">これはタイトルです</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">uk</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">це заголовок</span><span class="se">\"</span><span class="s2">}"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"{</span><span class="se">\"</span><span class="s2">en</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">this is a description</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">zhcn</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">这是一个描述</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">zhtw</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">這是一個描述</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">bn</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">এটি একটি বিবরণ</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">ko</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">이것은 설명입니다</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">ru</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">это описание</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">ja</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">これは説明です</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">uk</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">це опис</span><span class="se">\"</span><span class="s2">}"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"numcomments"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-07-14T19:23:51.000Z"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"uid"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"entitle"</span><span class="p">:</span><span class="w"> </span><span class="s2">"This is a title"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"endescription"</span><span class="p">:</span><span class="w"> </span><span class="s2">"This is a description"</span><span class="w">
+        </span><span class="s2">"entitle"</span><span class="p">:</span><span class="w"> </span><span class="s2">"this is a title"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"endescription"</span><span class="p">:</span><span class="w"> </span><span class="s2">"this is a description"</span><span class="w">
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>This endpoint creates a proposal.</p>
+<p>This endpoint creates a forum post.</p>
 <h3 id='http-request-4'>HTTP Request</h3>
-<p><code>POST https://api.solonedu.com/proposals</code></p>
-<h2 id='delete-a-specific-proposal'>Delete a Specific Proposal</h2>
+<p><code>POST https://api.solonedu.com/forumposts</code></p>
+<h2 id='delete-a-specific-forum-post'>Delete a Specific Forum Post</h2>
 <blockquote>
 <p>This endpoint returns a JSON structured like this:</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-    </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Proposal with proposalID 256 was deleted"</span><span class="w">
+    </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Forumpost with forumpostID 71 was deleted"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>This endpoint deletes a specific proposal.</p>
+<p>This endpoint deletes a specific forum post.</p>
 <h3 id='http-request-5'>HTTP Request</h3>
-<p><code>DELETE https://api.solonedu.com/proposals/&lt;proposalID&gt;</code></p>
+<p><code>DELETE https://api.solonedu.com/forumposts/&lt;forumpostID&gt;</code></p>
 <h3 id='url-parameters-2'>URL Parameters</h3>
 <table><thead>
 <tr>
@@ -1397,8 +1358,8 @@ You must replace <code>apikeyhere</code> with your personal API key.
 </tr>
 </thead><tbody>
 <tr>
-<td>proposalID</td>
-<td>ID of the proposal to delete</td>
+<td>forumpostID</td>
+<td>ID of the forum post to delete</td>
 </tr>
 </tbody></table>
 <h1 id='comments'>Comments</h1><h1 id='users'>Users</h1><h1 id='admins'>Admins</h1><h1 id='errors'>Errors</h1>
