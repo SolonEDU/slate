@@ -292,6 +292,23 @@
           </li>
           <li>
             <a href="#attenders" class="toc-h1 toc-link" data-title="Attenders">Attenders</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#attender-model" class="toc-h2 toc-link" data-title="Attender Model">Attender Model</a>
+                  </li>
+                  <li>
+                    <a href="#get-all-attenders" class="toc-h2 toc-link" data-title="Get All Attenders">Get All Attenders</a>
+                  </li>
+                  <li>
+                    <a href="#get-a-specific-attender" class="toc-h2 toc-link" data-title="Get A Specific Attender">Get A Specific Attender</a>
+                  </li>
+                  <li>
+                    <a href="#create-an-attender" class="toc-h2 toc-link" data-title="Create an Attender">Create an Attender</a>
+                  </li>
+                  <li>
+                    <a href="#delete-a-specific-attender" class="toc-h2 toc-link" data-title="Delete a Specific Attender">Delete a Specific Attender</a>
+                  </li>
+              </ul>
           </li>
           <li>
             <a href="#forum-posts" class="toc-h1 toc-link" data-title="Forum Posts">Forum Posts</a>
@@ -703,7 +720,7 @@ You must replace <code>apikeyhere</code> with your personal API key.
 </span></code></pre>
 <p>This endpoint creates a vote.</p>
 <h3 id='http-request-3'>HTTP Request</h3>
-<p><code>POST http://example.com/votes</code></p>
+<p><code>POST https://api.solonedu.com/votes</code></p>
 <h2 id='change-a-vote'>Change a Vote</h2>
 <blockquote>
 <p>This endpoint requires a body like this:</p>
@@ -968,7 +985,142 @@ You must replace <code>apikeyhere</code> with your personal API key.
 <td>ID of the event to delete</td>
 </tr>
 </tbody></table>
-<h1 id='attenders'>Attenders</h1><h1 id='forum-posts'>Forum Posts</h1><h1 id='comments'>Comments</h1><h1 id='users'>Users</h1><h1 id='admins'>Admins</h1><h1 id='errors'>Errors</h1>
+<h1 id='attenders'>Attenders</h1><h2 id='attender-model'>Attender Model</h2>
+<blockquote>
+<p>Attenders are stored in a model structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"aid"</span><span class="p">:</span><span class="w"> </span><span class="mi">31</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"eid"</span><span class="p">:</span><span class="w"> </span><span class="mi">30</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"uid"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><h3 id='fields'>Fields</h3>
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>aid</td>
+<td>ID of the attender</td>
+</tr>
+<tr>
+<td>eid</td>
+<td>ID of the event that is being attended</td>
+</tr>
+<tr>
+<td>uid</td>
+<td>ID of the user that is attending</td>
+</tr>
+</tbody></table>
+<h2 id='get-all-attenders'>Get All Attenders</h2>
+<blockquote>
+<p>This endpoint returns a JSON structured like this</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"All attenders were fetched"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"attenders"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"aid"</span><span class="p">:</span><span class="w"> </span><span class="mi">31</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"eid"</span><span class="p">:</span><span class="w"> </span><span class="mi">30</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"uid"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"aid"</span><span class="p">:</span><span class="w"> </span><span class="mi">33</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"eid"</span><span class="p">:</span><span class="w"> </span><span class="mi">29</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"uid"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint retrieves all attenders.</p>
+<h3 id='http-request'>HTTP Request</h3>
+<p><code>GET https://api.solonedu.com/attenders</code></p>
+<h2 id='get-a-specific-attender'>Get A Specific Attender</h2>
+<blockquote>
+<p>This endpoint returns a JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Attender for eventID 30 by userID 1 was fetched"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"attender"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"aid"</span><span class="p">:</span><span class="w"> </span><span class="mi">31</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"eid"</span><span class="p">:</span><span class="w"> </span><span class="mi">30</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"uid"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint retrieves a specific vote.</p>
+<h3 id='http-request-2'>HTTP Request</h3>
+<p><code>GET https://api.solonedu.com/attenders/&lt;eventID&gt;/&lt;userID&gt;</code></p>
+<h3 id='url-parameters'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>eventID</td>
+<td>ID of the proposal that is being attended</td>
+</tr>
+<tr>
+<td>userID</td>
+<td>ID of the user that is attending</td>
+</tr>
+</tbody></table>
+<h2 id='create-an-attender'>Create an Attender</h2>
+<blockquote>
+<p>This endpoint requires a body like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"eid"</span><span class="p">:</span><span class="w"> </span><span class="mi">30</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"uid"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p>This endpoint returns a JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Attender was created"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"attender"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"aid"</span><span class="p">:</span><span class="w"> </span><span class="mi">34</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"eid"</span><span class="p">:</span><span class="w"> </span><span class="mi">30</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"uid"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint creates an attender.</p>
+<h3 id='http-request-3'>HTTP Request</h3>
+<p><code>POST https://api.solonedu.com/attenders</code></p>
+<h2 id='delete-a-specific-attender'>Delete a Specific Attender</h2>
+<blockquote>
+<p>This endpoint returns a JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Attender for eventID 30 by userID 5 was deleted"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint deletes a specific vote.</p>
+<h3 id='http-request-4'>HTTP Request</h3>
+<p><code>DELETE https://api.solonedu.com/attenders/&lt;eventID&gt;/&lt;userID&gt;</code></p>
+<h3 id='url-parameters-2'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>eventID</td>
+<td>ID of the proposal that is being attended</td>
+</tr>
+<tr>
+<td>userID</td>
+<td>ID of the user that is attending</td>
+</tr>
+</tbody></table>
+<h1 id='forum-posts'>Forum Posts</h1><h1 id='comments'>Comments</h1><h1 id='users'>Users</h1><h1 id='admins'>Admins</h1><h1 id='errors'>Errors</h1>
 <p>The Solon API uses the following error codes:</p>
 
 <table><thead>
