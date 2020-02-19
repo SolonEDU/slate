@@ -110,7 +110,7 @@ This endpoint creates a vote.
 
 ### HTTP Request
 
-`POST http://example.com/votes`
+`POST https://api.solonedu.com/votes`
 
 ## Change a Vote
 
