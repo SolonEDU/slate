@@ -364,7 +364,7 @@
             <a href="#admins" class="toc-h1 toc-link" data-title="Admins">Admins</a>
           </li>
           <li>
-            <a href="#errors" class="toc-h1 toc-link" data-title="Errors">Errors</a>
+            <a href="#status-codes" class="toc-h1 toc-link" data-title="Status Codes">Status Codes</a>
           </li>
       </ul>
         <ul class="toc-footer">
@@ -1575,15 +1575,23 @@ You must replace <code>apikeyhere</code> with your personal API key.
 <td>ID of the comment to delete</td>
 </tr>
 </tbody></table>
-<h1 id='users'>Users</h1><h1 id='admins'>Admins</h1><h1 id='errors'>Errors</h1>
-<p>The Solon API uses the following error codes:</p>
+<h1 id='users'>Users</h1><h1 id='admins'>Admins</h1><h1 id='status-codes'>Status Codes</h1>
+<p>The Solon API uses the following status codes:</p>
 
 <table><thead>
 <tr>
-<th>Error Code</th>
+<th>Status Code</th>
 <th>Meaning</th>
 </tr>
 </thead><tbody>
+<tr>
+<td>200</td>
+<td>OK</td>
+</tr>
+<tr>
+<td>201</td>
+<td>Created</td>
+</tr>
 <tr>
 <td>404</td>
 <td>Not Found -- The specified endpoint could not be found.</td>
@@ -1591,6 +1599,10 @@ You must replace <code>apikeyhere</code> with your personal API key.
 <tr>
 <td>500</td>
 <td>Internal Server Error -- We had a problem with our server. Try again later.</td>
+</tr>
+<tr>
+<td>504</td>
+<td>Gateway Timeout</td>
 </tr>
 </tbody></table>
 
