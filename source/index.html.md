@@ -13,7 +13,7 @@ includes:
   - comments
   - users
   - admins
-  - errors
+  - statuscodes
 
 search: true
 ---
