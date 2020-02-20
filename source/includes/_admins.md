@@ -6,19 +6,19 @@
 
 ```json
 {
-    "adminid": 1,
-    "username": "admin",
-    "password": "$2b$10$YzC1owZJxajF9NzmLW.8CucPz4xRaCGOJjKEbemMNZQEbBMh5PrjS"
+  "adminid": 1,
+  "username": "admin",
+  "password": "$2b$10$YzC1owZJxajF9NzmLW.8CucPz4xRaCGOJjKEbemMNZQEbBMh5PrjS"
 }
 ```
 
 ### Fields
 
-Field | Description
------ | -----------
-adminid | ID of the admin
-username | username of the admin
-password | hashed password of the admin
+| Field    | Description                  |
+| -------- | ---------------------------- |
+| adminid  | ID of the admin              |
+| username | username of the admin        |
+| password | hashed password of the admin |
 
 ## Get A Specific Admin
 
@@ -26,12 +26,12 @@ password | hashed password of the admin
 
 ```json
 {
-    "message": "Admin with adminID 1 was fetched",
-    "admin": {
-        "adminid": 1,
-        "username": "admin",
-        "password": "$2b$10$YzC1owZJxajF9NzmLW.8CucPz4xRaCGOJjKEbemMNZQEbBMh5PrjS"
-    }
+  "message": "Admin with adminID 1 was fetched",
+  "admin": {
+    "adminid": 1,
+    "username": "admin",
+    "password": "$2b$10$YzC1owZJxajF9NzmLW.8CucPz4xRaCGOJjKEbemMNZQEbBMh5PrjS"
+  }
 }
 ```
 
@@ -43,9 +43,9 @@ This endpoint retrieves a specific admin.
 
 ### URL Parameters
 
-Parameter | Description
---------- | -----------
-adminID | ID of the admin to retrieve
+| Parameter | Description                 |
+| --------- | --------------------------- |
+| adminID   | ID of the admin to retrieve |
 
 ## Login an Admin
 
@@ -53,8 +53,8 @@ adminID | ID of the admin to retrieve
 
 ```json
 {
-	"username": "username",
-	"password": "password" 
+  "username": "username",
+  "password": "password"
 }
 ```
 
@@ -62,8 +62,12 @@ adminID | ID of the admin to retrieve
 
 ```json
 {
-	"username": "admin",
-	"password": "password"
+  "message": "Admin was successfully logged in",
+  "admin": {
+    "adminid": 1,
+    "username": "admin",
+    "password": "$2b$10$YzC1owZJxajF9NzmLW.8CucPz4xRaCGOJjKEbemMNZQEbBMh5PrjS"
+  }
 }
 ```
 
@@ -79,8 +83,8 @@ This endpoint attempts to authenticate an admin upon login.
 
 ```json
 {
-	"username": "username",
-	"password": "password"
+  "username": "username",
+  "password": "password"
 }
 ```
 
@@ -88,7 +92,7 @@ This endpoint attempts to authenticate an admin upon login.
 
 ```json
 {
-    "message": "Admin with username username was registered"
+  "message": "Admin with username username was registered"
 }
 ```
 
@@ -104,7 +108,7 @@ This endpoint attempts to register an admin.
 
 ```json
 {
-    "message": "Admin with adminID 2 was deleted"
+  "message": "Admin with adminID 2 was deleted"
 }
 ```
 
@@ -116,6 +120,6 @@ This endpoint deletes a specific admin.
 
 ### URL Parameters
 
-Parameter | Description
---------- | -----------
-adminID | ID of the admin to delete
+| Parameter | Description               |
+| --------- | ------------------------- |
+| adminID   | ID of the admin to delete |
