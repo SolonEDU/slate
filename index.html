@@ -1808,9 +1808,9 @@ You must replace <code>apikeyhere</code> with your personal API key.
 <p>Admins are stored in a model structured like this:</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-    </span><span class="s2">"adminid"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"username"</span><span class="p">:</span><span class="w"> </span><span class="s2">"admin"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"password"</span><span class="p">:</span><span class="w"> </span><span class="s2">"$2b$10$YzC1owZJxajF9NzmLW.8CucPz4xRaCGOJjKEbemMNZQEbBMh5PrjS"</span><span class="w">
+  </span><span class="s2">"adminid"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"username"</span><span class="p">:</span><span class="w"> </span><span class="s2">"admin"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"password"</span><span class="p">:</span><span class="w"> </span><span class="s2">"$2b$10$YzC1owZJxajF9NzmLW.8CucPz4xRaCGOJjKEbemMNZQEbBMh5PrjS"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre><h3 id='fields'>Fields</h3>
 <table><thead>
@@ -1837,12 +1837,12 @@ You must replace <code>apikeyhere</code> with your personal API key.
 <p>This endpoint returns a JSON structured like this:</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-    </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Admin with adminID 1 was fetched"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"admin"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"adminid"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"username"</span><span class="p">:</span><span class="w"> </span><span class="s2">"admin"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"password"</span><span class="p">:</span><span class="w"> </span><span class="s2">"$2b$10$YzC1owZJxajF9NzmLW.8CucPz4xRaCGOJjKEbemMNZQEbBMh5PrjS"</span><span class="w">
-    </span><span class="p">}</span><span class="w">
+  </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Admin with adminID 1 was fetched"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"admin"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"adminid"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"username"</span><span class="p">:</span><span class="w"> </span><span class="s2">"admin"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"password"</span><span class="p">:</span><span class="w"> </span><span class="s2">"$2b$10$YzC1owZJxajF9NzmLW.8CucPz4xRaCGOJjKEbemMNZQEbBMh5PrjS"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>This endpoint retrieves a specific admin.</p>
@@ -1865,16 +1865,20 @@ You must replace <code>apikeyhere</code> with your personal API key.
 <p>This endpoint requires a body like this:</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-    </span><span class="s2">"username"</span><span class="p">:</span><span class="w"> </span><span class="s2">"username"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"password"</span><span class="p">:</span><span class="w"> </span><span class="s2">"password"</span><span class="w"> 
+  </span><span class="s2">"username"</span><span class="p">:</span><span class="w"> </span><span class="s2">"username"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"password"</span><span class="p">:</span><span class="w"> </span><span class="s2">"password"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <blockquote>
 <p>This endpoint returns a JSON structured like this:</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Admin was successfully logged in"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"admin"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"adminid"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
     </span><span class="s2">"username"</span><span class="p">:</span><span class="w"> </span><span class="s2">"admin"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"password"</span><span class="p">:</span><span class="w"> </span><span class="s2">"password"</span><span class="w">
+    </span><span class="s2">"password"</span><span class="p">:</span><span class="w"> </span><span class="s2">"$2b$10$YzC1owZJxajF9NzmLW.8CucPz4xRaCGOJjKEbemMNZQEbBMh5PrjS"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>This endpoint attempts to authenticate an admin upon login.</p>
@@ -1885,15 +1889,15 @@ You must replace <code>apikeyhere</code> with your personal API key.
 <p>This endpoint requires a body like this:</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-    </span><span class="s2">"username"</span><span class="p">:</span><span class="w"> </span><span class="s2">"username"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"password"</span><span class="p">:</span><span class="w"> </span><span class="s2">"password"</span><span class="w">
+  </span><span class="s2">"username"</span><span class="p">:</span><span class="w"> </span><span class="s2">"username"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"password"</span><span class="p">:</span><span class="w"> </span><span class="s2">"password"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <blockquote>
 <p>This endpoint returns a JSON structured like this:</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-    </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Admin with username username was registered"</span><span class="w">
+  </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Admin with username username was registered"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>This endpoint attempts to register an admin.</p>
@@ -1904,7 +1908,7 @@ You must replace <code>apikeyhere</code> with your personal API key.
 <p>This endpoint returns a JSON structured like this:</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-    </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Admin with adminID 2 was deleted"</span><span class="w">
+  </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Admin with adminID 2 was deleted"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>This endpoint deletes a specific admin.</p>
